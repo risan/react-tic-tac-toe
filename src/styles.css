@@ -1,0 +1,146 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  height: 100%;
+}
+
+body {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 1rem;
+  margin: 0;
+  height: 100%;
+  background: #f9e9f4;
+}
+
+.root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 620px;
+  padding: 10px;
+}
+
+.game-status {
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.game-status .player-one {
+  color: #FF7777;
+}
+
+.game-status .player-two {
+  color: #5FCC9C;
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  background: #f0f0f0
+}
+
+.board {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: 302px;
+  height: 302px;
+  border: 1px solid #9F609C;
+}
+
+.cell {
+  font-size: 40px;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #9F609C;
+  outline: none;
+  background: #fff;
+  cursor: pointer;
+}
+
+.cell-player-one {
+  color: #FF7777;
+  cursor: not-allowed;
+}
+
+.cell-player-two {
+  color: #5FCC9C;
+  cursor: not-allowed;
+}
+
+.board-history {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 200px;
+  max-width: 302px;
+  height: 302px;
+  padding: 10px;
+  background: #FDFDEB;
+  border: 2px solid #9F609C;
+  border-left: none;
+}
+
+.board-history h3 {
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+  background: #9F609C;
+  padding: 10px;
+  margin: -10px -10px 0 -10px;
+}
+
+.history-sort-btn {
+  font-size: 18px;
+  line-height: 1;
+  float: right;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.step-list {
+  position: relative;
+  margin: 10px 0;
+  padding: 0;
+  list-style-type: none;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.step-list-item {
+  color: #3379E4;
+  padding: 5px 10px;
+  border-bottom: 1px dotted #3379E4;
+  cursor: pointer;
+}
+
+.step-list-item.active {
+  color: #000;
+  border-bottom: 1px dotted #000;
+  cursor: default;
+}
+
+.step-list-item span {
+  margin-left: 10px;
+}
