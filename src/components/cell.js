@@ -1,21 +1,24 @@
 import React from 'react';
 import Player from './../helpers/player';
 
-function Cell({ value, onClick }) {
-  let className = 'cell';
+function Cell({ value, isWinner, onClick }) {
+  let className = '';
 
   switch (value) {
     case Player.ONE:
-      className = 'cell cell-player-one';
+      className = 'cell-player-one';
       break;
     case Player.TWO:
-      className = 'cell cell-player-two';
+      className = 'cell-player-two';
       break;
     default:
   }
 
   return (
-    <button className={className} onClick={onClick}>
+    <button
+      className={`cell ${className} ${isWinner ? 'cell-winner': ''}`}
+      onClick={onClick}
+    >
       {value}
     </button>
   );

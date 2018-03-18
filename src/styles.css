@@ -85,6 +85,14 @@ body {
   cursor: not-allowed;
 }
 
+.cell-player-one.cell-winner {
+  background: #FFE2E2;
+}
+
+.cell-player-two.cell-winner {
+  background: #E5F9BD;
+}
+
 .board-history {
   display: flex;
   flex-direction: column;
@@ -141,6 +149,6 @@ body {
   cursor: default;
 }
 
-.step-list-item span {
+.step-list-item .finger {
   margin-left: 10px;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import StepList from './step-list';
 
-function BoardHistory({ stepIdx, totalSteps, sortStepsAsc, onStepClick, onSortBtnClick, stepListRef }) {
+function BoardHistory({ steps, stepIdx, sortStepsAsc, onStepClick, onSortBtnClick, stepListRef }) {
   const sortEmoji = sortStepsAsc ?
     <span role="img" aria-label="sort asc">🔼</span>:
     <span role="img" aria-label="sort desc">🔽</span>;
@@ -15,8 +15,8 @@ function BoardHistory({ stepIdx, totalSteps, sortStepsAsc, onStepClick, onSortBt
         </button>
       </h3>
       <StepList
+        steps={steps}
         stepIdx={stepIdx}
-        totalSteps={totalSteps}
         sortStepsAsc={sortStepsAsc}
         onStepClick={onStepClick}
         ref={stepListRef}

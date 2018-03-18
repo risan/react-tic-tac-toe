@@ -3,9 +3,9 @@ import Player from './../helpers/player';
 
 function GameStatus({ isPlayerOneNext, winner }) {
   let status;
-  let playerOne = <span className="player-one">{Player.ONE}</span>;
-  let playerTwo = <span className="player-two">{Player.TWO}</span>;
-  let wonEmoji = <span role="img" aria-label="confetti">🎉</span>;
+  const playerOne = <span className="player-one">{Player.ONE}</span>;
+  const playerTwo = <span className="player-two">{Player.TWO}</span>;
+  const wonEmoji = <span role="img" aria-label="confetti">🎉</span>;
 
   if (winner) {
     switch (winner) {
