@@ -3,7 +3,4 @@ import { render } from 'react-dom';
 import Game from './components/game';
 import './styles.css';
 
-render(
-  <Game />,
-  document.getElementById('root')
-);
+render(<Game />, document.getElementById('root'));

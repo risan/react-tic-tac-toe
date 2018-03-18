@@ -4,8 +4,9 @@ import Player from './../helpers/player';
 
 class StepList extends Component {
   scrollToLastItem() {
-    this.listNode.scrollTop = this.props.sortStepsAsc ?
-      this.listNode.querySelector('li:last-child').offsetTop : 0;
+    this.listNode.scrollTop = this.props.sortStepsAsc
+      ? this.listNode.querySelector('li:last-child').offsetTop
+      : 0;
   }
 
   getItemChild(idx) {
@@ -19,13 +20,17 @@ class StepList extends Component {
       return StepList.getWonItemChild(winner);
     }
 
-    const cellPos = [(cellIdx % 3), Math.floor(cellIdx / 3)];
+    const cellPos = [cellIdx % 3, Math.floor(cellIdx / 3)];
 
     return `Step #${idx} - ${player} (${cellPos[0]},${cellPos[1]})`;
   }
 
   static getWonItemChild(winner) {
-    const wonEmoji = <span role="img" aria-label="trophy">🏆</span>;
+    const wonEmoji = (
+      <span role="img" aria-label="trophy">
+        🏆
+      </span>
+    );
 
     switch (winner) {
       case Player.ONE:
@@ -48,7 +53,7 @@ class StepList extends Component {
     }
 
     return (
-      <ol className="step-list" ref={node => this.listNode = node}>
+      <ol className="step-list" ref={node => (this.listNode = node)}>
         {stepIndices.map(idx => (
           <StepListItem
             key={idx}

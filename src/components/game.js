@@ -10,13 +10,15 @@ class Game extends Component {
     super(props);
 
     this.state = {
-      steps: [{
-        cells: Array(9).fill(null),
-        isPlayerOneNext: true,
-        winner: null,
-        winnerLine: null,
-        move: null
-      }],
+      steps: [
+        {
+          cells: Array(9).fill(null),
+          isPlayerOneNext: true,
+          winner: null,
+          winnerLine: null,
+          move: null
+        }
+      ],
       stepIdx: 0,
       sortStepsAsc: true
     };
@@ -33,21 +35,24 @@ class Game extends Component {
     const currentCells = cells.slice();
     currentCells[idx] = isPlayerOneTurn ? Player.ONE : Player.TWO;
 
-    this.setState({
-      steps: steps.slice(0, stepIdx + 1).concat({
-        cells: currentCells,
-        isPlayerOneNext: !isPlayerOneTurn,
-        winner: Winner.findFromCells(currentCells),
-        winnerLine: Winner.findLineFromCells(currentCells),
-        move: {
-          cellIdx: idx,
-          player: isPlayerOneTurn ? Player.ONE : Player.TWO
-        }
-      }),
-      stepIdx: stepIdx + 1
-    }, () => {
-      this.stepList.scrollToLastItem();
-    });
+    this.setState(
+      {
+        steps: steps.slice(0, stepIdx + 1).concat({
+          cells: currentCells,
+          isPlayerOneNext: !isPlayerOneTurn,
+          winner: Winner.findFromCells(currentCells),
+          winnerLine: Winner.findLineFromCells(currentCells),
+          move: {
+            cellIdx: idx,
+            player: isPlayerOneTurn ? Player.ONE : Player.TWO
+          }
+        }),
+        stepIdx: stepIdx + 1
+      },
+      () => {
+        this.stepList.scrollToLastItem();
+      }
+    );
   }
 
   handStepClick(idx) {
@@ -66,10 +71,7 @@ class Game extends Component {
 
     return (
       <div className="game">
-        <GameStatus
-          isPlayerOneNext={isPlayerOneNext}
-          winner={winner}
-        />
+        <GameStatus isPlayerOneNext={isPlayerOneNext} winner={winner} />
         <div className="main">
           <Board
             cells={cells}
@@ -82,7 +84,7 @@ class Game extends Component {
             sortStepsAsc={sortStepsAsc}
             onStepClick={idx => this.handStepClick(idx)}
             onSortBtnClick={() => this.handleSortBtnClick()}
-            stepListRef={node => this.stepList = node}
+            stepListRef={node => (this.stepList = node)}
           />
         </div>
       </div>

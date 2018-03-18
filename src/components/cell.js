@@ -16,7 +16,7 @@ function Cell({ value, isWinner, onClick }) {
 
   return (
     <button
-      className={`cell ${className} ${isWinner ? 'cell-winner': ''}`}
+      className={`cell ${className} ${isWinner ? 'cell-winner' : ''}`}
       onClick={onClick}
     >
       {value}
